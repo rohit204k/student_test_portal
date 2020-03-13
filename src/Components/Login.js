@@ -1,11 +1,9 @@
 import React, { Component, useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { Card, Logo, Form, Input, Button } from '../Components/Authform';
+import { Input, Button } from '../Components/Authform';
 import { Redirect } from "react-router-dom"
 import axios from 'axios'
-const DB_URL = 'http://localhost:8080'
-const Student_API_URL = `${DB_URL}/student`
-// import {retrieveStudents} from '../Services/StudentDataService';
+import { API_URL } from '../configuration'
 
 const Login = () => {
 
@@ -16,23 +14,17 @@ const Login = () => {
 
   const [student, setStudent] = React.useState({})
 
-
-
-
-
   async function retrieveStudents(e) {
     e.preventDefault();
-    const API_URL = `${Student_API_URL}/${id}`
+    const STUDENT_URL = `${API_URL.STUDENT_API_URL}/${id}`
 
-    await axios.get(`${API_URL}`) 
+    await axios.get(`${STUDENT_URL}`)
       .then(
         response => {
-
           stu = response.data
-                  }
+        }
       ).catch(error => console.log(error))
 
-    
     if (password === stu.password) {
       console.log("DONE!!")
       setLogin(true);
@@ -41,27 +33,62 @@ const Login = () => {
       alert("Login Failed!");
   }
 
+  var linkStyle = {
+    margin: "2.25rem",
+  }
 
   return (
-    <>
-      <Card>
-        <form onSubmit={(e) => retrieveStudents(e)}>
-          <h1>Student Login Page</h1>
-          <label for="studID">Student ID:</label>
-          <Input type="text" placeholder="eg: 1EL16DW001" value={id} onChange={(e) => setID(e.target.value.toUpperCase())}></Input>
-          <br></br><label for="password">Password: </label>
-          <Input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <Button type="submit">Sign In</Button>
-        </form>
-        <Link to="/signup">Don't have an account?Sign up</Link>
-      </Card>
-      
+    <div className="loginCard">
+      <table className="loginTable">
+        <tbody>
+          <tr>
+            <td>
+              <h2>Student Login Page</h2>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Input
+                type="text"
+                placeholder="Student Id"
+                value={id}
+                onChange={(e) => setID(e.target.value.trim().toUpperCase())}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value.trim())}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Button type="submit" onClick={(e) => retrieveStudents(e)}>Sign In</Button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              {/* {validationErrorMessage} */}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Link style={linkStyle} to="/signup">Don't have an account?Sign up</Link>
+            </td>
+          </tr>
+        </tbody>
+      </table>
       {login && <Redirect
         to={{
           pathname: "/courses",
           state: { id: id }
         }} />}
-    </>
+    </div>
   );
 }
 export default Login;
