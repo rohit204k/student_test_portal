@@ -1,0 +1,19 @@
+@import url(https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css);
+
+/* .container{
+    background-image: url('../Images/images.jpg');
+    background-repeat:no-repeat;
+    background-size:;
+} */
+
+.buttonClass{
+    background-color: white;
+    color:black; 
+    cursor: 'pointer';
+    border-radius:10px;
+}
+
+.buttonClass:hover{
+    background-color: black;
+    color: white;
+}
