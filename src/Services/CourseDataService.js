@@ -5,7 +5,7 @@ const COURSE_API_URL = `${DB_URL}/courses/`
 
 class CourseDataService {
 
-    retrieveAllCourses(name) {
+    retrieveAllCourses() {
         return axios.get(`${COURSE_API_URL}`);
     }
 }

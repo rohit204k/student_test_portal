@@ -1,6 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
 import "./CourseList.css";
-import axios from "axios";
 import CourseDataService from "../Services/CourseDataService";
 import { Redirect } from "react-router";
 class Courses extends Component {
@@ -16,9 +15,10 @@ class Courses extends Component {
     componentDidMount() {
         this.getAllCourses();
     }
+
     getAllCourses() {
         CourseDataService.retrieveAllCourses().then(response => {
-            //console.log(response);
+            console.log("reached")
             this.setState({ courses: response.data });
         });
     }
