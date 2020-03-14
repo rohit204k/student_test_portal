@@ -27,6 +27,7 @@ const Login = () => {
 
     if (password === stu.password) {
       console.log("DONE!!")
+      window.localStorage.setItem("studID",stu.studID);
       setLogin(true);
     }
     else
