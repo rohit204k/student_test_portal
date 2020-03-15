@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { questions, answerKeys } from "./Data";
 import Question from "./Question";
 import { Redirect } from "react-router";
+import {Card,Button1 } from "./Authform";
 
 export default class Questions extends Component {
   state = {
@@ -39,9 +40,9 @@ export default class Questions extends Component {
           />
         ))}
         <br />
-        <button type="button" className="btn" onClick={this.onSubmit}>
+        <Button1 type="button" className="btn" onClick={this.onSubmit}>
           Submit
-        </button>
+        </Button1>
         {showResults && (
           <Redirect
             to={{
