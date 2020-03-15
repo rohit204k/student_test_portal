@@ -22,7 +22,8 @@ class Courses extends Component {
             this.setState({ courses: response.data });
         });
     }
-    handleTest = () => {
+    handleTest = (event,id) => {
+        window.localStorage.setItem("courseID",id)
         this.setState({
             startTest: true
         });
@@ -36,33 +37,31 @@ class Courses extends Component {
                         <tr>
                             <th>Course ID</th>
                             <th>Course Name</th>
-                            <th>Test Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.courses.map(course => (
+                        {this.state.courses.map((course,index) => (
                             <tr key={course.courseID}>
                                 <td>{course.courseID}</td>
                                 <td>{course.courseName}</td>
-                                <td>{course.date}</td>
                                 <td>
-                                    <button className="buttonClass" onClick={this.handleTest}>
+                                    <button className="buttonClass" onClick={(event) => this.handleTest(event, course.courseID)}>
                                         Take Test Now!
-                  </button>
+                                    </button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
-        
-        {this.state.startTest && (
-                <Redirect
-                    to={{
-                        pathname: "/startpage",
-                        // state: { courseID }
-                    }}
-                />
-            )}
+
+                {this.state.startTest && (
+                    <Redirect
+                        to={{
+                            pathname: "/startpage",
+                            // state: { courseID }
+                        }}
+                    />
+                )}
             </div>
         );
     }
