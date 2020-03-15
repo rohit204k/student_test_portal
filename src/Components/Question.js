@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import QuestionDataService from '../Services/QuestionDataService'
+import {Div } from "./Authform";
 
 class Question extends Component {
   state = {
@@ -46,7 +47,7 @@ refreshQuestions() {
   render() {
     const { data } = this.props;
     return (
-      <>
+      <Div>
         <h3>
           {data.id}. {data.question}
         </h3>
@@ -67,7 +68,7 @@ refreshQuestions() {
             </div>
           );
         })}
-      </>
+      </Div>
     );
   }
 }

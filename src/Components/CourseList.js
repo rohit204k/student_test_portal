@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import "./CourseList.css";
 import CourseDataService from "../Services/CourseDataService";
 import { Redirect } from "react-router";
+import {Card,Button } from "./Authform";
 class Courses extends Component {
     constructor(props) {
         super(props);
@@ -30,13 +31,14 @@ class Courses extends Component {
     render() {
         return (
             <div className="container">
-                <h3>Available Courses</h3>
+                <h3 style={{textAlign:"center"}}>Available Courses</h3>
                 <table className="table">
                     <thead>
                         <tr>
                             <th>Course ID</th>
                             <th>Course Name</th>
                             <th>Test Date</th>
+                            <th>Click Below </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,9 +48,9 @@ class Courses extends Component {
                                 <td>{course.courseName}</td>
                                 <td>{course.date}</td>
                                 <td>
-                                    <button className="buttonClass" onClick={this.handleTest}>
+                                    <Button className="buttonClass" onClick={this.handleTest}>
                                         Take Test Now!
-                  </button>
+                  </Button>
                                 </td>
                             </tr>
                         ))}

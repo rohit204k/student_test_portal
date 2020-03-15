@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { Input, Button } from '../Components/Authform';
+import { Card,Input, Button } from '../Components/Authform';
 import { Redirect } from "react-router-dom"
 import axios from 'axios'
 import { API_URL } from '../configuration'
@@ -44,7 +44,7 @@ const Login = () => {
         <tbody>
           <tr>
             <td>
-              <h2>Student Login Page</h2>
+              <h2 style={{textAlign:"center"}}>Student Login Page</h2>
             </td>
           </tr>
           <tr>

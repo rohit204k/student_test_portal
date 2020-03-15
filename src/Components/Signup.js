@@ -14,7 +14,7 @@ const Signup=()=>{
 
   return (
     <Card>
-     <h1>Student Signup Page</h1>
+     <h1 style={{textAlign:"center"}}>Student Signup Page</h1>
       <Form>
         <label for = "studID">Student ID:</label> 
         <Input type="text" id="studID" name="studID" onChange={handleInputChange} placeholder="eg: 1EL16DW001" />
