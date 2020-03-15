@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+#error{
+  display:none;
+}
+
+.maincard{
+  align-content:center ;
+  width:400px ;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+}
+

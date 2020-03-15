@@ -17,10 +17,11 @@ const Form = styled.div`
 `;
 
 const Input = styled.input
-`
-  width: 100%;
-  padding: 0.25rem;
-  margin: 0.25rem;
+` 
+  align-content:center;
+  width: 90%;
+  padding: 0.45rem;
+  margin: 0.45rem;
   border-radius: 0.25rem;
   border-style: solid;
   border-color: #3f4eae;
@@ -45,7 +46,7 @@ const Button = styled.button`
   padding: 0.25rem;
   color: white;
   font-weight: 700;
-  width: 100%;
+  width: 95%;
   margin-bottom: 1rem;
   font-size: 0.8rem;
 `;

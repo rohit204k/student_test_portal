@@ -13,8 +13,11 @@ import Questions from "./Components/Questions";
 import Results from "./Components/Results";
 
 function App(props) {
+  
   return (
+  
     <AuthContext.Provider value={false}>
+      
       <Router>
           <Route exact path="/" component={Login} />
           <Route exact path="/signup" component={Signup} /> 

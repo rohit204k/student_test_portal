@@ -1,4 +1,4 @@
-@import url(https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css);
+
 
 /* .container{
     background-image: url('../Images/images.jpg');
@@ -8,12 +8,31 @@
 
 .buttonClass{
     background-color: white;
-    color:black; 
+    color: #3f4eae;
     cursor: 'pointer';
     border-radius:10px;
 }
 
 .buttonClass:hover{
-    background-color: black;
+    background-color: #3f4eae;
     color: white;
+}
+
+h3{
+    position: absolute;
+    top: 8%;
+}
+
+table{
+    position: absolute;
+    top:15%;
+    right:10%;
+    width: 80%;
+}
+
+tbody{
+    border:1px solid black;
+}
+td{
+    width:5%;
 }

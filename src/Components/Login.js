@@ -27,11 +27,11 @@ const Login = () => {
 
     if (password === stu.password) {
       console.log("DONE!!")
-      window.localStorage.setItem("studID",stu.studID);
+      window.localStorage.setItem("studID", stu.studID);
       setLogin(true);
     }
     else
-      alert("Login Failed!");
+      document.getElementById('error').style.display = 'block'
   }
 
   var linkStyle = {
@@ -39,51 +39,56 @@ const Login = () => {
   }
 
   return (
-    <div className="loginCard">
-      <table className="loginTable">
-        <tbody>
-          <tr>
-            <td>
-              <h2>Student Login Page</h2>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Input
-                type="text"
-                placeholder="Student Id"
-                value={id}
-                onChange={(e) => setID(e.target.value.trim().toUpperCase())}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value.trim())}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button type="submit" onClick={(e) => retrieveStudents(e)}>Sign In</Button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              {/* {validationErrorMessage} */}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Link style={linkStyle} to="/signup">Don't have an account?Sign up</Link>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="maincard">
+      <div className="col">
+        <div class="card" style={{ width: "25rem", height: "20rem"}}>
+          <table className="loginTable">
+            <tbody>
+              <tr>
+                <td>
+                  <h2 >Student Login Page</h2>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <Input
+                    type="text"
+                    placeholder="Student Id"
+                    value={id}
+                    onChange={(e) => setID(e.target.value.trim().toUpperCase())}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value.trim())}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Button type="submit" onClick={(e) => retrieveStudents(e)}>Sign In</Button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span id="error" className="text text-danger">Incorrect Credentials. Please Try again.</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Link style={linkStyle} to="/signup">Don't have an account?Sign up</Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
       {login && <Redirect
         to={{
           pathname: "/courses",
