@@ -29,11 +29,15 @@ const Signup = () => {
   }
   console.log(student)
 
+  var linkStyle = {
+    margin: "2.25rem",
+  }
+
+
   return (
     <Card>
 
      <h1 style={{textAlign:"center"}}>Student Signup Page</h1>
-      <h1>Student Signup Page</h1>
       <Form>
         <label for="studID">Student ID:</label>
         <Input type="text" id="studID" name="studID" onChange={handleInputChange} placeholder="eg: 1EL16DW001" required/>
@@ -49,6 +53,7 @@ const Signup = () => {
         <Input type="password" id="cpassword" onChange={handleInputChange} name="cpassword" placeholder="Password Again" required/>
         <span id="error" className="text text-danger">Passwords don't match. Please Try again.</span>
         <Button onClick={(e) => addStudents(e)}>Sign Up</Button>
+        <Link style={linkStyle} to="/">Have an account?Login</Link>
       </Form>
 
     </Card>

@@ -48,9 +48,9 @@ class Courses extends Component {
                                 <td>{course.courseName}</td>
                                 <td>
 
-                                    <button className="buttonClass" onClick={(event) => this.handleTest(event, course.courseID)}>
+                                    <Button className="buttonClass" onClick={(event) => this.handleTest(event, course.courseID)}>
                                         Take Test Now!
-                                    </button>
+                                    </Button>
                                 </td>
                             </tr>
                         ))}

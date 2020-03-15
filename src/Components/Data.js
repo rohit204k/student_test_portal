@@ -94,17 +94,30 @@ options: [
 ]
 },
 
+
 {
-id: 9,
-question:
-  "Which of the following is used in pencils?",
-options: [
-  { id: 1, value: "Graphite" },
-  { id: 2, value: "Silicon" },
-  { id: 3, value: "Charcoal" },
-  { id: 4, value: "Phosphorous" }
-]
-}
+  id: 9,
+  question:
+    "Which of the following is used in pencils?",
+  options: [
+    { id: 1, value: "Graphite" },
+    { id: 2, value: "Silicon" },
+    { id: 3, value: "Charcoal" },
+    { id: 4, value: "Phosphorous" }
+  ]
+  },
+
+  {
+    id: 10,
+    question:
+    'Two students appeared at an examination. One of them secured 9 marks more than the other and his marks was 56% of the sum of their marks',
+    options: [
+      { id: 1, value: "39, 30" },
+      { id: 2, value: "41, 32" },
+      { id: 3, value: "42, 33" },
+      { id: 4, value: "43, 34" }
+    ]
+    }
 ];
 
 export const answerKeys = {

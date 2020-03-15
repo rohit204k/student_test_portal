@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from 'axios'
 import { API_URL } from '../configuration'
 import {Card,Button } from "./Authform";
+import { Link } from "react-router-dom";
+
 
 class Results extends Component {
   constructor(props) {
@@ -29,8 +31,21 @@ class Results extends Component {
     return this.props.location.state ? (
       <>
        <Card>
+       <table className="resulttable">
+        <tr>
+         <td>
         <div>{`Name: ${studOb.fName} ${studOb.lName}`}</div>
-        <div>{`Your score is ${this.props.location.state.score}`} </div>
+        </td>
+        </tr>
+        <tr><td>
+        <div>{`Your score is : ${this.props.location.state.score}`} </div>
+        </td></tr>
+        <tr><td>
+        <div><Link to="/">
+        <Button className="btn">LogOut</Button>
+      </Link></div>
+      </td></tr>
+      </table>
       </Card>
       </>
     ) : (

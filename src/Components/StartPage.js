@@ -1,32 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {Card,Button } from "./Authform";
+import {Card,Button,Div } from "./Authform";
 
 const StartPage = () => {
   return (
-    <Card>
-    <div style={{textAlign:"center"}}className="startcard">
-      <table className="starttable">
+    
+    <Div className="startcard">
+      
+            <h1 style={{textAlign:"center"}}>Take your test.</h1>
+            <Card>
+            <table className="starttable">
         <tr>
-          <td>
-            <h1>Take your test.</h1>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Choose the right answer.
-          </td>
-        </tr>
-        <tr>
-          <td>
-          <Link to="/questions">
-        <Button className="btn">Start Test</Button>
-      </Link>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </Card>
+      <td>
+    <p style={{textAlign:"center"}}>
+    <b> INSTRUCTIONS - </b><br/>
+    <p>1. Read the question and choose the right answer. </p> 
+    <p>2. Each questoin carries 1 mark.</p> 
+    <p>3. There is no negative marking.</p> 
+    <p>4. Answer every question before submitting.</p>
+  </p>
+      <Link to="/questions">
+    <Button className="btn">Start Test</Button>
+  </Link>
+      </td>
+    </tr>
+    </table>
+    </Card>
+      
+    </Div>
+  
   );
 };
 export default StartPage;
