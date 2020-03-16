@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import QuestionDataService from '../Services/QuestionDataService'
-import {Div } from "./Authform";
+import { Div } from "./Authform";
 
 class Question extends Component {
   state = {
@@ -13,10 +13,9 @@ class Question extends Component {
         selectedOption: event.target.value
       },
       () => {
-        const id = data.options.find(
-          option => option.value === this.state.selectedOption
-        ).id;
-        handleAnswer(data.id, id);
+        console.log(this.state.selectedOption)
+        
+        handleAnswer(data, this.state.selectedOption );
       }
     );
   };
@@ -24,50 +23,81 @@ class Question extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        questions: [],
-        message: null
+      questions: [],
+      message: null
     }
     // this.refreshQuestions = this.refreshQuestions.bind(this)
-}
+  }
 
-// componentDidMount() {
-//     this.refreshQuestions();
-// }
+  // componentDidMount() {
+  //     this.refreshQuestions();
+  // }
 
-// refreshQuestions() {
-//   QuestionDataService.retrieveAllQuestions()//HARDCODED
-//         .then(
-//             response => {
-//                 console.log(response.data);
-//                 //this.setState({ questions: response.data })
-//             }
-//         )
-// }
+  // refreshQuestions() {
+  //   QuestionDataService.retrieveAllQuestions()//HARDCODED
+  //         .then(
+  //             response => {
+  //                 console.log(response.data);
+  //                 //this.setState({ questions: response.data })
+  //             }
+  //         )
+  // }
 
   render() {
     const { data } = this.props;
     return (
       <Div>
         <h3>
-          {data.id}. {data.question}
+          {data.qno}. {data.question}
         </h3>
-        {data.options.map(option => {
-          return (
-            <div key={option.id}>
-              <label>
-                <input
-                  type="radio"
-                  key={option.id}
-                  value={option.value}
-                  checked={this.state.selectedOption === option.value}
-                  onChange={this.handleOptionChange}
-                />
-                {option.value}
-              </label>
-              <br />
-            </div>
-          );
-        })}
+          <label>
+            <input
+              type="radio"
+              // key={option.id}
+              value="a"
+              checked={this.state.selectedOption === "a"}
+              onChange={this.handleOptionChange}
+            />
+            {data.a}
+          </label>
+          <br />
+          
+          <label>
+            <input
+              type="radio"
+              // key={option.id}
+              value="b"
+              checked={this.state.selectedOption === "b"}
+              onChange={this.handleOptionChange}
+            />
+            {data.b}
+          </label>
+          <br />
+
+          <label>
+            <input
+              type="radio"
+              // key={option.id}
+              value="c"
+              checked={this.state.selectedOption === "c"}
+              onChange={this.handleOptionChange}
+            />
+            {data.c}
+          </label>
+          <br />
+
+          <label>
+            <input
+              type="radio"
+              // key={option.id}
+              value="d"
+              checked={this.state.selectedOption === "d"}
+              onChange={this.handleOptionChange}
+            />
+            {data.d}
+          </label>
+          <br />
+
       </Div>
     );
   }

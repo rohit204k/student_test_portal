@@ -20,7 +20,8 @@ class Results extends Component {
     })
   }
   componentDidMount() {
-    this.fetchData(window.localStorage.getItem("studID"))
+    this.fetchData(window.localStorage.getItem("studID")
+    )
 
   }
   componentWillUnmount(){

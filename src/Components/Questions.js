@@ -9,7 +9,7 @@ import {Card,Button1 } from "./Authform";
 export default class Questions extends Component {
   state = {
     answers: {},
-    queOb:{},
+    queOb:[],
     score: 0,
     showResults: false
   };
@@ -26,28 +26,32 @@ export default class Questions extends Component {
   }
   onSubmit = () => {
     // Compare the answers array and answerKeys array to accordingly increment the value of result in order to get the final score
-    let { answers, score } = this.state;
-    Object.keys(answerKeys).forEach(el => {
-      if (answerKeys[el] === answers[el]) {
+    let { answers, score,queOb } = this.state;
+
+    const optionid=queOb.find(question=>question.ans)
+    Object.keys(answers).forEach(el => {
+      
+      // console.log(queOb[el-1].ans)
+      if (queOb[el-1].ans === answers[el]) {
         score++;
       }
     });
     this.setState({ score, showResults: true });
   };
 
-  handleAnswer = (qid, aid) => {
-    let { answers } = this.state;
-    answers[qid] = aid;
-    this.setState({ answers });
+  handleAnswer = (que, aid) => {
+    let {answers}=this.state;
+    answers[que.qno] = aid;
+    this.setState({ answers },()=>console.log(answers));
   };
 
   render() {
     const { showResults, score } = this.state;
     return (
       <div>
-        {questions.map(question => (
+        {this.state.queOb.map(question => (
           <Question
-            key={question.id}
+            key={question.qno}
             data={question}
             handleAnswer={this.handleAnswer}
           />
