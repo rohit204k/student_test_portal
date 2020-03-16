@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { Card, Form, Input, Button } from '../Components/Authform';
 import axios from 'axios'
+import { Redirect } from "react-router-dom"
 import { API_URL } from '../configuration'
 
 const Signup = () => {
-  let stu = {}
+  let stat
   const [student, setStudent] = React.useState({})
+  const [signup, setsignup] = React.useState(false)
 
   const handleInputChange = (e) => setStudent({
     ...student,
@@ -21,11 +23,19 @@ const Signup = () => {
         .then(
           response => {
             console.log(response)
+            stat=response.status
           }
         ).catch(error => console.log(error))
     }
     else
       document.getElementById('error').style.display = 'block'
+
+    if (stat==200){
+      alert("Signup Successful. Click to Login again.")
+      setsignup(true)
+    }
+    else
+      document.getElementById("error1").stule.display='block'
   }
   console.log(student)
 
@@ -51,11 +61,15 @@ const Signup = () => {
         <Input type="password" id="password" onChange={handleInputChange} name="password" placeholder="Password" required/>
         <label for="cpassword">Confirm Password</label>
         <Input type="password" id="cpassword" onChange={handleInputChange} name="cpassword" placeholder="Password Again" required/>
-        <span id="error" className="text text-danger">Passwords don't match. Please Try again.</span>
+        <span id="error" className="text text-danger">Passwords don't match. Please try again.</span>
+        <span id="error1" className="text text-danger">Some error occured. Please try again</span>
         <Button onClick={(e) => addStudents(e)}>Sign Up</Button>
-        <Link style={linkStyle} to="/">Have an account?Login</Link>
+        <Link style={linkStyle} to="/">Have an account already?Login</Link>
       </Form>
-
+      {signup && <Redirect
+        to={{
+          pathname: "/",
+        }} />}
     </Card>
   );
 }
