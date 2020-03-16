@@ -2,7 +2,10 @@ import React, { Component, useState, useEffect } from "react";
 import "./CourseList.css";
 import CourseDataService from "../Services/CourseDataService";
 import { Redirect } from "react-router";
-import {Card,Button } from "./Authform";
+import { Card, Button ,Button1} from "./Authform";
+import { Link } from "react-router-dom";
+
+
 class Courses extends Component {
     constructor(props) {
         super(props);
@@ -23,8 +26,8 @@ class Courses extends Component {
             this.setState({ courses: response.data });
         });
     }
-    handleTest = (event,name) => {
-        window.localStorage.setItem("courseName",name)
+    handleTest = (event, name) => {
+        window.localStorage.setItem("courseName", name)
         this.setState({
             startTest: true
         });
@@ -32,7 +35,7 @@ class Courses extends Component {
     render() {
         return (
             <div className="container">
-                <h3 style={{textAlign:"center"}}>Available Courses</h3>
+                <h3 style={{ textAlign: "center" }}>Available Courses</h3>
                 <table className="table">
                     <thead>
                         <tr>
@@ -42,7 +45,7 @@ class Courses extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.courses.map((course,index) => (
+                        {this.state.courses.map((course, index) => (
                             <tr key={course.courseID}>
                                 <td>{course.courseID}</td>
                                 <td>{course.courseName}</td>
@@ -56,7 +59,9 @@ class Courses extends Component {
                         ))}
                     </tbody>
                 </table>
-
+                <div><Link to="/">
+                    <Button1 className="btn1">Log Out</Button1>
+                </Link></div>
                 {this.state.startTest && (
                     <Redirect
                         to={{

@@ -5,6 +5,8 @@ import { Redirect } from "react-router";
 import axios from 'axios'
 import { API_URL } from '../configuration'
 import {Card,Button1 } from "./Authform";
+import "./CourseList.css";
+
 
 export default class Questions extends Component {
   state = {
@@ -13,6 +15,8 @@ export default class Questions extends Component {
     score: 0,
     showResults: false
   };
+
+  
   fetchQuestionData(name) {
     let fetchQuestionUrl = API_URL.QUESTION_API_URL + '/' + name;
     axios.get(fetchQuestionUrl).then(response => {
@@ -30,7 +34,6 @@ export default class Questions extends Component {
 
     const optionid=queOb.find(question=>question.ans)
     Object.keys(answers).forEach(el => {
-      
       // console.log(queOb[el-1].ans)
       if (queOb[el-1].ans === answers[el]) {
         score++;
@@ -57,9 +60,10 @@ export default class Questions extends Component {
           />
         ))}
         <br />
-        <Button1 type="button" className="btn" onClick={this.onSubmit}>
+        <center>
+        <button className="subbtn" type="button" onClick={this.onSubmit}>
           Submit
-        </Button1>
+        </button></center>
         {showResults && (
           <Redirect
             to={{

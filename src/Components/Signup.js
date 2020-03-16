@@ -19,23 +19,25 @@ const Signup = () => {
     e.preventDefault();
     const STUDENT_URL = `${API_URL.STUDENT_API_URL}`
     if (student.password === student.cpassword) {
-      await axios.post(`${STUDENT_URL}`, { studID: student.studID, fName: student.fname, lName: student.lname, email: student.email, password: student.password })
+      await axios.post(`${STUDENT_URL}`, { studID: student.studID.trim().tuUpperCase(), fName: student.fname, lName: student.lname, email: student.email, password: student.password })
         .then(
           response => {
             console.log(response)
             stat=response.status
+            setsignup(true)
           }
         ).catch(error => console.log(error))
+        // if (stat===200){
+        //   alert("Signup Successful. Click to Login again.")
+        //   setsignup(true)
+        // }
+        // else
+        //   document.getElementById("error1").style.display='block'
     }
     else
       document.getElementById('error').style.display = 'block'
 
-    if (stat===200){
-      alert("Signup Successful. Click to Login again.")
-      setsignup(true)
-    }
-    else
-      document.getElementById("error1").stule.display='block'
+    
   }
   console.log(student)
 
@@ -63,8 +65,8 @@ const Signup = () => {
         <Input type="password" id="cpassword" onChange={handleInputChange} name="cpassword" placeholder="Password Again" required/>
         <span id="error" className="text text-danger">Passwords don't match. Please try again.</span>
         <span id="error1" className="text text-danger">Some error occured. Please try again</span>
-        <Button onClick={(e) => addStudents(e)}>Sign Up</Button>
-        <Link style={linkStyle} to="/">Have an account already?Login</Link>
+        <Button onClick={(e) => addStudents(e)}>Sign up</Button>
+        <Link style={linkStyle} to="/">Have an account already? Login</Link>
       </Form>
       {signup && <Redirect
         to={{

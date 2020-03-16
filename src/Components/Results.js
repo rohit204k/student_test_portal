@@ -9,18 +9,26 @@ class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      studOb:{}
+      studOb:{},
+      courOb:{}
     }
 
   };
-  fetchData(id) {
+  fetchStudentData(id) {
     let fetchStudentUrl = API_URL.STUDENT_API_URL + '/' + id;
     axios.get(fetchStudentUrl).then(response => {
       this.setState({ studOb: response.data })
     })
   }
+  fetchCourseData(name) {
+    let fetchCourseUrl = API_URL.COURSE_API_URL + '/' + name;
+    axios.get(fetchCourseUrl).then(response => {
+      this.setState({ courOb: response.data })
+    })
+  }
   componentDidMount() {
-    this.fetchData(window.localStorage.getItem("studID")
+    this.fetchStudentData(window.localStorage.getItem("studID")
+  
     )
 
   }
@@ -43,7 +51,7 @@ class Results extends Component {
         </td></tr>
         <tr><td>
         <div><Link to="/">
-        <Button className="btn">LogOut</Button>
+        <Button className="btn">Log Out</Button>
       </Link></div>
       </td></tr>
       </table>

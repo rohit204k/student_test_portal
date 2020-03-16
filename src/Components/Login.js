@@ -69,7 +69,7 @@ const Login = () => {
           </tr>
           <tr>
             <td>
-              <Button type="submit" onClick={(e) => retrieveStudents(e)}>Sign In</Button>
+              <Button type="submit" onClick={(e) => retrieveStudents(e)}>Login</Button>
             </td>
           </tr>
           <tr>
@@ -79,7 +79,7 @@ const Login = () => {
           </tr>
           <tr>
             <td>
-              <Link style={linkStyle} to="/signup">Don't have an account?Sign up</Link>
+              <Link style={linkStyle} to="/signup">Don't have an account? Sign up</Link>
             </td>
           </tr>
         </tbody>

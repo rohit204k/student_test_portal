@@ -6,7 +6,7 @@
     background-size:;
 } */
 
-.buttonClass{
+.buttonClass {
     background-color: white;
     color: #3f4eae;
     cursor: 'pointer';
@@ -36,3 +36,9 @@ tbody{
 td{
     width:5%;
 } */
+.subbtn{
+    background-color: #3f4eae;
+    cursor: 'pointer';
+    border-radius:10px;
+    color:white;
+  }

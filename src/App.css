@@ -41,6 +41,10 @@
   display:none;
 }
 
+#error1{
+  display:none;
+}
+
 /* .maincard{
   align-content:center ;
   width:400px ;
