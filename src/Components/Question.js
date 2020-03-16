@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import QuestionDataService from '../Services/QuestionDataService'
+// import QuestionDataService from '../Services/QuestionDataService'
 import {Div } from "./Authform";
 
 class Question extends Component {
@@ -27,22 +27,22 @@ class Question extends Component {
         questions: [],
         message: null
     }
-    this.refreshQuestions = this.refreshQuestions.bind(this)
+    // this.refreshQuestions = this.refreshQuestions.bind(this)
 }
 
-componentDidMount() {
-    this.refreshQuestions();
-}
+// componentDidMount() {
+//     this.refreshQuestions();
+// }
 
-refreshQuestions() {
-  QuestionDataService.retrieveAllQuestions()//HARDCODED
-        .then(
-            response => {
-                console.log(response.data);
-                //this.setState({ questions: response.data })
-            }
-        )
-}
+// refreshQuestions() {
+//   QuestionDataService.retrieveAllQuestions()//HARDCODED
+//         .then(
+//             response => {
+//                 console.log(response.data);
+//                 //this.setState({ questions: response.data })
+//             }
+//         )
+// }
 
   render() {
     const { data } = this.props;

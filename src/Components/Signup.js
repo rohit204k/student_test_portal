@@ -30,7 +30,7 @@ const Signup = () => {
     else
       document.getElementById('error').style.display = 'block'
 
-    if (stat==200){
+    if (stat===200){
       alert("Signup Successful. Click to Login again.")
       setsignup(true)
     }

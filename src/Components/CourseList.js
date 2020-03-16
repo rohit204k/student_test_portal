@@ -23,8 +23,8 @@ class Courses extends Component {
             this.setState({ courses: response.data });
         });
     }
-    handleTest = (event,id) => {
-        window.localStorage.setItem("courseID",id)
+    handleTest = (event,name) => {
+        window.localStorage.setItem("courseName",name)
         this.setState({
             startTest: true
         });
@@ -48,7 +48,7 @@ class Courses extends Component {
                                 <td>{course.courseName}</td>
                                 <td>
 
-                                    <Button className="buttonClass" onClick={(event) => this.handleTest(event, course.courseID)}>
+                                    <Button className="buttonClass" onClick={(event) => this.handleTest(event, course.courseName)}>
                                         Take Test Now!
                                     </Button>
                                 </td>

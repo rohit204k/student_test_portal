@@ -13,14 +13,14 @@ class Results extends Component {
     }
 
   };
-  fetchdata(id) {
+  fetchData(id) {
     let fetchStudentUrl = API_URL.STUDENT_API_URL + '/' + id;
     axios.get(fetchStudentUrl).then(response => {
       this.setState({ studOb: response.data })
     })
   }
   componentDidMount() {
-    this.fetchdata(window.localStorage.getItem("studID"))
+    this.fetchData(window.localStorage.getItem("studID"))
 
   }
   componentWillUnmount(){
