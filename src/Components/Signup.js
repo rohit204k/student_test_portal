@@ -19,25 +19,21 @@ const Signup = () => {
     e.preventDefault();
     const STUDENT_URL = `${API_URL.STUDENT_API_URL}`
     if (student.password === student.cpassword) {
-      await axios.post(`${STUDENT_URL}`, { studID: student.studID.trim().tuUpperCase(), fName: student.fname, lName: student.lname, email: student.email, password: student.password })
+      await axios.post(`${STUDENT_URL}`, { studID: student.studID, fName: student.fname, lName: student.lname, email: student.email, password: student.password })
         .then(
           response => {
             console.log(response)
-            stat=response.status
+            stat = response.status
+            setsignup(true)
+            alert("Signup Successful. Click to Login again.")
             setsignup(true)
           }
-        ).catch(error => console.log(error))
-        // if (stat===200){
-        //   alert("Signup Successful. Click to Login again.")
-        //   setsignup(true)
-        // }
-        // else
-        //   document.getElementById("error1").style.display='block'
+        ).catch(error => alert("Some error occured. Please try again"))
     }
     else
       document.getElementById('error').style.display = 'block'
 
-    
+
   }
   console.log(student)
 
@@ -49,20 +45,20 @@ const Signup = () => {
   return (
     <Card>
 
-     <h1 style={{textAlign:"center"}}>Student Signup Page</h1>
+      <h1 style={{ textAlign: "center" }}>Student Signup Page</h1>
       <Form>
         <label for="studID">Student ID:</label>
-        <Input type="text" id="studID" name="studID" onChange={handleInputChange} placeholder="eg: 1EL16DW001" required/>
+        <Input type="text" id="studID" name="studID" onChange={handleInputChange} placeholder="eg: 1EL16DW001" required />
         <label for="fname">First Name:</label>
-        <Input type="text" id="fname" name="fname" onChange={handleInputChange} placeholder="First Name" required/>
+        <Input type="text" id="fname" name="fname" onChange={handleInputChange} placeholder="First Name" required />
         <label for="lname">Last Name:</label>
-        <Input type="text" id="lname" name="lname" onChange={handleInputChange} placeholder="Last Name" required/>
+        <Input type="text" id="lname" name="lname" onChange={handleInputChange} placeholder="Last Name" required />
         <label for="email">Email-ID:</label>
-        <Input type="email" id="email" name="email" onChange={handleInputChange} placeholder="Email" required/>
+        <Input type="email" id="email" name="email" onChange={handleInputChange} placeholder="Email" required />
         <label for="password">Password</label>
-        <Input type="password" id="password" onChange={handleInputChange} name="password" placeholder="Password" required/>
+        <Input type="password" id="password" onChange={handleInputChange} name="password" placeholder="Password" required />
         <label for="cpassword">Confirm Password</label>
-        <Input type="password" id="cpassword" onChange={handleInputChange} name="cpassword" placeholder="Password Again" required/>
+        <Input type="password" id="cpassword" onChange={handleInputChange} name="cpassword" placeholder="Password Again" required />
         <span id="error" className="text text-danger">Passwords don't match. Please try again.</span>
         <span id="error1" className="text text-danger">Some error occured. Please try again</span>
         <Button onClick={(e) => addStudents(e)}>Sign up</Button>

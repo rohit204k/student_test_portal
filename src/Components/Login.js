@@ -23,7 +23,7 @@ const Login = () => {
         response => {
           stu = response.data
         }
-      ).catch(error => console.log(error))
+      ).catch(error => alert("Some error occured. Please try again"))
 
     if (password === stu.password) {
       console.log("DONE!!")
@@ -31,7 +31,7 @@ const Login = () => {
       setLogin(true);
     }
     else
-      alert("Login Failed!");
+      document.getElementById("error").style.display='block';
   }
 
   var linkStyle = {
@@ -74,7 +74,7 @@ const Login = () => {
           </tr>
           <tr>
             <td>
-              {/* {validationErrorMessage} */}
+            <span id="error" className="text text-danger">Incorrect credentials. Please try again.</span>
             </td>
           </tr>
           <tr>
